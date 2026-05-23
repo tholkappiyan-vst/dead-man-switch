@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dead-Man's Switch Vault</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input[type="text"], input[type="email"], input[type="number"], textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; cursor: pointer; width: 100%; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        .box { border: 1px solid #ccc; padding: 20px; border-radius: 5px; background-color: #f9f9f9; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h2>🔒 Secure Dead-Man's Switch Engine</h2>
+    
+    <div class="box">
+        <h3>Access Your Existing Switches</h3>
+        <form action="/access" method="POST">
+            <div class="form-group">
+                <label>Enter Your Registered Owner Email:</label>
+                <input type="email" name="userEmail" required placeholder="your-email@gmail.com">
+            </div>
+            <button type="submit">View My Dashboard</button>
+        </form>
+    </div>
+
+    <div class="box">
+        <h3>Create a New Automated Safety Lock</h3>
+        <form action="/create" method="POST">
+            <div class="form-group">
+                <label>Your Email (Owner):</label>
+                <input type="email" name="userEmail" required placeholder="owner@gmail.com">
+            </div>
+            <div class="form-group">
+                <label>Switch Title / Alias:</label>
+                <input type="text" name="title" required placeholder="e.g., Cloud Server Recovery Pack">
+            </div>
+            <div class="form-group">
+                <label>Secret Payload Data (Released only if switch triggers):</label>
+                <textarea name="secretData" rows="4" required placeholder="Paste sensitive data, recovery keys, or secret text here..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Beneficiary Email (Receiver):</label>
+                <input type="email" name="beneficiaryEmail" required placeholder="trusted-person@gmail.com">
+            </div>
+            <div class="form-group">
+                <label>Check-in Interval (In Minutes):</label>
+                <input type="number" name="intervalMinutes" value="5" min="1" required>
+            </div>
+            <button type="submit" style="background-color: #28a745;">Activate Automated Switch</button>
+        </form>
+    </div>
+</body>
+</html>
